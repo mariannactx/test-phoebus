@@ -1,0 +1,1 @@
+let byId = (id) => document.getElementById(id);
