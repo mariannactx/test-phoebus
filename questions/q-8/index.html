@@ -5,10 +5,20 @@
   <a href="//www.google.com">Google</a><br />
 </body>
 <script>
+  // function registerLinks() {
+  //   var as = document.getElementsByTagName('a');
+  //   for (var i = 0; i < as.length; i++) { 
+  //     as[i].onclick = function () { alert(i); return false; } 
+  //   }
+  // }
+
   function registerLinks() {
     var as = document.getElementsByTagName('a');
-    for (var i = 0; i < as.length; i++) { 
-      as[i].onclick = function () { alert(i); return false; } 
+    for (var i = 0; i < as.length; i++) {
+      as[i].id = i;
+      as[i].onclick = function(e) { alert(e.target.id); return false; }
     }
   }
+
+  registerLinks();
 </script>
