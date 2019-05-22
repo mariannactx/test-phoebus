@@ -1,0 +1,39 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "name": "ronaldo",
+      "telefone": "83911111111",
+      "email": "ronaldo@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "samuel",
+      "telefone": "83922222222",
+      "email": "samuel@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "boner",
+      "telefone": "83933333333",
+      "email": "boner@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "jefferson",
+      "telefone": "83944444444",
+      "email": "jefferson@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "joão",
+      "telefone": "83955555555"
+    },
+    {
+      "id": 6,
+      "name": "marilia",
+      "telefone": "83966666666",
+      "email": "marilia@gmail.com"
+    }
+  ]
+}

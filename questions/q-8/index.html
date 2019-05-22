@@ -1,0 +1,14 @@
+<body>
+  Na minha vida, usei os seguintes mecanismos de pesquisa da web:<br />
+  <a href="//www.cade.com">cade</a><br />
+  <a href="//www.altavista.com">AltaVista</a><br />
+  <a href="//www.google.com">Google</a><br />
+</body>
+<script>
+  function registerLinks() {
+    var as = document.getElementsByTagName('a');
+    for (var i = 0; i < as.length; i++) { 
+      as[i].onclick = function () { alert(i); return false; } 
+    }
+  }
+</script>

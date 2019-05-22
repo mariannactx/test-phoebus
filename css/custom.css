@@ -1,0 +1,10 @@
+body {
+  padding-top: 20px;
+}
+
+p{
+  white-space: pre-line;
+}
+.nav-tabs{
+  margin-bottom: 15px;
+}

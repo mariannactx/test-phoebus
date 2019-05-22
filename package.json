@@ -1,0 +1,19 @@
+{
+  "name": "phoebus",
+  "version": "1.0.0",
+  "description": "Prova de seleção 2019 - JavascriptLite",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariannactx/test-phoebus.git"
+  },
+  "author": "Marianna Cruz Teixeira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariannactx/test-phoebus/issues"
+  },
+  "homepage": "https://github.com/mariannactx/test-phoebus#readme"
+}
