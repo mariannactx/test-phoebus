@@ -1,0 +1,56 @@
+html,body{
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+header {
+  padding: 0 0 15px 0;
+}
+
+footer {
+  padding: 15px 0 0 0;
+}
+
+header div, footer div{
+  padding: 10px;
+}
+
+main{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+content{
+  flex:3;
+  padding: 0 15px 0 0;
+} 
+
+aside{
+  flex:1;
+}
+
+content div, aside div{
+  padding: 10px;
+  height: calc(100% - 20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header  div{ background: #e13c30 }
+content div{ background: #4050df }
+aside   div{ background: #83f467 }
+footer  div{ background: #8d2e74 }
+
+h2{
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
