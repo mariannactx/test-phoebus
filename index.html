@@ -97,9 +97,33 @@
           <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="tab5-tab">
             <h2>Questão 5</h2>
             <p>Crie uma tela com um &lt;input&gt; que deve receber o nome de um usuário no Github. Após digitar o nome do usuário e clicar no botão buscar a aplicação deve buscar pela API do Github (conformeURL abaixo) os dados de repositórios do usuário e mostrá-los em tela.
-              URL: https://api.github.com/users/<seuUsuario>/repos
-              Basta alterar "&lt;seuUsuario&gt;" pelo nome do usuário correto. Exiba na página uma lista com os nomes dos repositórios retornados na consulta. Caso aconteça algum erro na consulta (como usuário inexistente) exiba uma mensagem de erro em tela.</p>
-            <samp>output</samp>
+              
+              URL: https://api.github.com/users/&lt;seuUsuario&gt;/repos
+              
+              Basta alterar "&lt;seuUsuario&gt;" pelo nome do usuário correto. 
+              Exiba na página uma lista com os nomes dos repositórios retornados na consulta. 
+              Caso aconteça algum erro na consulta (como usuário inexistente) exiba uma mensagem de erro em tela
+            </p>
+            
+            <div class="output">
+              <div class="card border-dark mb-3">
+                <div class="card-header">Repositórios</div>
+                <div class="card-body">
+                  <form id="search-git-repo" class="row">
+                    <div class="form-group col-4">
+                      <div class="input-group mb-3">
+                        <input type="text" name="user" class="form-control" placeholder="usuário do github">
+                        <div class="input-group-append">
+                          <button class="input-group-text" onclick=" return search(this.form);">BUSCAR</button>
+                        </div>
+                        <div class="invalid-feedback hide">Nome de usuário inválido</div>
+                      </div>
+                    </div>
+                  </form>
+                  <ul id="repo-list" class="list-group"></ul>
+                </div>
+              </div>
+            </div>
             <script src="questions/script-5.js"></script>
           </div>
           <div class="tab-pane fade" id="tab6" role="tabpanel" aria-labelledby="tab6-tab">
