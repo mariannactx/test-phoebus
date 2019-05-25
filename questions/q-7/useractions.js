@@ -1,9 +1,8 @@
-
 var listContacts = async () => {
 
   var contacts = await xhr(apiUrl, 'GET');
-  
-  if(contacts.length == 0){
+
+  if(!contacts || contacts.length == 0){
     addContactListItem("Nenhum contato encontrado");
     return;
   }
@@ -15,8 +14,7 @@ var listContacts = async () => {
   return false;
 }
 
-var searchContacts = async (e, form) => {
-  e.preventDefault();
+var searchContacts = (form) => {
 
   var formData = getFormData(form);
 
@@ -25,21 +23,21 @@ var searchContacts = async (e, form) => {
 
   clearContactList();
 
-  var contacts = await xhr(apiUrl + 'search', 'POST', formData);
+  xhr(apiUrl + 'search', 'POST', formData).then( (contacts) => {
+    if(!contacts || contacts.length == 0){
+      addContactListItem("Nenhum contato encontrado");
+      return false;
+    }
   
-  if(contacts.length == 0){
-    addContactListItem("Nenhum contato encontrado");
-    return;
-  }
-
-  contacts.forEach((contact) => 
-    addContactListItem(contact)
-  );
-
+    contacts.forEach((contact) => 
+      addContactListItem(contact)
+    );
+  });
+  
   return false;
 }
 
-var searchContact = async (id) => {
+var searchContact = (id) => {
   if(!isValid(id)){
     return false;
   }
@@ -47,7 +45,7 @@ var searchContact = async (id) => {
   return xhr(apiUrl + 'search', 'POST', {id: id});
 }
 
-var addContact = async(e, form) => {
+var addContact = async(form) => {
 
   var formData = getFormData(form);
 
@@ -63,16 +61,12 @@ var addContact = async(e, form) => {
     return;
   }
 
-  var form = byId('search-contacts');
-  if(form.name.value.length > 0)
-    searchContacts(e, form);
-
+  refresh();
   flash("add-success");
-
-
+  
 }
 
-var editContact = async(e, form) => {
+var editContact = async(form) => {
 
   var formData = getFormData(form);
   if(!validate('edit', form, formData))
@@ -87,10 +81,7 @@ var editContact = async(e, form) => {
     return;
   }
 
-  var form = byId('search-contacts');
-  if(form.name.value.length > 0)
-    searchContacts(e, form);
-
+  refresh();
   flash("edit-success");
 
 }

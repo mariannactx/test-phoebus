@@ -28,7 +28,7 @@
               <div class="input-group mb-3">
                 <input type="text" name="name" class="form-control" placeholder="nome do contato">
                 <div class="input-group-append">
-                  <button class="input-group-text" onclick="searchContacts(event, this.form); return false;">BUSCAR</button>
+                  <button class="input-group-text" onclick="return searchContacts(this.form);">BUSCAR</button>
                 </div>
                 <div class="invalid-feedback hide">Preencha o nome do contato antes de buscar</div>
               </div>
@@ -43,13 +43,14 @@
     </div>
 
     <!-- ALERTS -->
-    <div id="add-success"    role="alert" class=" alert alert-success">Contato adicionado com sucesso</div>
-    <div id="edit-success"   role="alert" class=" alert alert-success">Contato alterado com sucesso</div>
-    <div id="remove-success" role="alert" class=" alert alert-success">Contato removido com sucesso</div>
+    <div id="add-success"    role="alert" class="alert alert-success">Contato adicionado com sucesso</div>
+    <div id="edit-success"   role="alert" class="alert alert-success">Contato alterado com sucesso</div>
+    <div id="remove-success" role="alert" class="alert alert-success">Contato removido com sucesso</div>
 
-    <div id="add-fail"    role="alert" class=" alert alert-danger">Erro ao adicionar contato</div>
-    <div id="edit-fail"   role="alert" class=" alert alert-danger">Erro ao alterar contato</div>
-    <div id="remove-fail" role="alert" class=" alert alert-danger">Erro ao remover contato</div>
+    <div id="add-fail"    role="alert" class="alert alert-danger">Erro ao adicionar contato</div>
+    <div id="edit-fail"   role="alert" class="alert alert-danger">Erro ao alterar contato</div>
+    <div id="remove-fail" role="alert" class="alert alert-danger">Erro ao remover contato</div>
+    <div id="api-fail"    role="alert" class="alert alert-danger">Erro ao consultar sua agenda telefônica</div>
 
     <div id="add-contact-modal" class="modal">
       <div class="modal-dialog" role="document">
@@ -79,7 +80,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" onclick="addContact(event, this.form); return false;">Salvar</button>
+              <button type="button" class="btn btn-primary" onclick="addContact(this.form);">Salvar</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </form>
@@ -115,16 +116,15 @@
                   </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="editContact(event, this.form); return false;">Salvar</button>
+                <button type="button" class="btn btn-primary" onclick="editContact(this.form);">Salvar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-
-    <script src="script.js"></script>
-    <script src="useractions.js"></script>
   </div>
+  <script src="script.js"></script>
+  <script src="useractions.js"></script>
 </body>
 </html>

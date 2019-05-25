@@ -62,7 +62,6 @@ var removeContactListItem = (id) => {
 var setClass = (element, classe) => element.setAttribute('class', classe);
 
 var flash = (id) => {
-  console.log('add-success', id);
   $("#" + id).fadeIn();
   setTimeout(() => {$("#" + id).fadeOut();}, 2000);
 }
@@ -76,8 +75,6 @@ $("#add-contact-modal, #edit-contact-modal").on('hide.bs.modal', (e) => {
   $('form input', e.target).removeClass('is-invalid');
   $('form', e.target).trigger("reset");
 })
-
-
 
 //FORM
 
@@ -137,7 +134,12 @@ var loadEditModal = async (e) => {
   e.preventDefault();
 
   var contact = await searchContact(e.target.parentNode.id);
-
+  
+  if(!contact){
+    flash("edit-fail");
+    return;
+  }
+  
   var editForm = byId("edit-contact-data");
   
   editForm.id.value = contact.id;
@@ -146,7 +148,6 @@ var loadEditModal = async (e) => {
   editForm.email.value = contact.email ? contact.email : '';
   
   $("#edit-contact-modal").modal('show');
-
 }
 
 //REQUEST
@@ -157,7 +158,15 @@ var xhr = (url, method, data) => {
     request.onreadystatechange = () => {
       if (request.readyState == 4 && request.status == 200) {
         var contacts = JSON.parse(request.responseText);
+        if(contacts.sort){
+          contacts.sort( (a,b) => a.name.localeCompare(b.name) );
+        }
         resolve(contacts);
+      }
+
+      if (request.readyState == 4 && request.status != 200) {
+        flash('api-fail');
+        resolve(false);
       }
     }
 
@@ -165,4 +174,14 @@ var xhr = (url, method, data) => {
     request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify(data));
   });
+}
+
+var refresh  = () => {
+  var form = byId('search-contacts');
+  if(form.name.value.length > 0){
+    searchContacts(form);
+  } else {
+    clearContactList();
+    listContacts();
+  }
 }

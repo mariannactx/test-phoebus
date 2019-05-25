@@ -9,12 +9,14 @@ const list = (body) => {
     var contacts = await read();
 
     if(body && body.id){
-      var filtered = null;
+      var filtered = false;
       contacts.forEach((contact) => {
         if(contact.id == body.id){
             filtered = contact;
         }
       });
+
+      contacts = filtered;
     }
     
     if(body && body.name){
@@ -25,11 +27,11 @@ const list = (body) => {
             filtered.push(contact);
         }
       });
-    }
 
-    if(filtered){
       contacts = filtered;
     }
+
+  
 
     resolve(contacts);
   })
@@ -37,7 +39,7 @@ const list = (body) => {
 
 const remove = (body) => {
   return new Promise( async (resolve, reject) => {
-    contact = null;
+    contact = false;
 
     if(body && body.id){
       var contacts = await read();
