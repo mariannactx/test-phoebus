@@ -1,0 +1,14 @@
+{
+  "name": "q-10",
+  "version": "1.0.0",
+  "description": "solução questão 10",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Marianna",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.8.0"
+  }
+}

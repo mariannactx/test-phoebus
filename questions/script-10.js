@@ -1,1 +1,1 @@
-console.log("2");
+const compareElements = require('./compareElements');
