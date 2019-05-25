@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title> Prova seleção Phoebus </title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="../../css/custom.css" />
+  
+  <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="../../js/index.js"></script>
+  <script type="text/javascript">
+    var apiUrl = 'http://localhost:8000/api/v1/contacts/';
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card border-dark mb-3">
+      <div class="card-header">Agenda telefônica</div>
+      <div class="card-body">
+        <div class="row">
+          <form id="search-contacts" class="col-4">
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <input type="text" name="name" class="form-control" placeholder="nome do contato">
+                <div class="input-group-append">
+                  <button class="input-group-text" onclick="searchContacts(event, this.form); return false;">BUSCAR</button>
+                </div>
+                <div class="invalid-feedback hide">Preencha o nome do contato antes de buscar</div>
+              </div>
+            </div>
+          </form>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-contact-modal">
+              +
+          </button>
+        </div>
+        <ul id="contact-list" class="list-group"></ul>
+      </div>
+    </div>
+
+    <!-- ALERTS -->
+    <div id="add-success"    role="alert" class=" alert alert-success">Contato adicionado com sucesso</div>
+    <div id="edit-success"   role="alert" class=" alert alert-success">Contato alterado com sucesso</div>
+    <div id="remove-success" role="alert" class=" alert alert-success">Contato removido com sucesso</div>
+
+    <div id="add-fail"    role="alert" class=" alert alert-danger">Erro ao adicionar contato</div>
+    <div id="edit-fail"   role="alert" class=" alert alert-danger">Erro ao alterar contato</div>
+    <div id="remove-fail" role="alert" class=" alert alert-danger">Erro ao remover contato</div>
+
+    <div id="add-contact-modal" class="modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Novo contato</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="add-contact-data">
+            <div class="modal-body">
+              <input type="hidden" name="id" />
+              <div class="form-group has-success">
+                <label class="form-control-label">Nome: *</label>
+                <input type="text" name="name" class="form-control">
+                <div class="invalid-feedback hide">Informe o nome do contato</div>
+              </div>
+              <div class="form-group has-success">
+                <label class="form-control-label">Telefone: *</label>
+                <input type="text" name="phone" class="form-control">
+                <div class="invalid-feedback hide">Informe o telefone do contato</div>
+              </div>
+              <div class="form-group has-success">
+                  <label class="form-control-label">Email: </label>
+                  <input type="email" name="email" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="addContact(event, this.form); return false;">Salvar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="edit-contact-modal" class="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar contato</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="edit-contact-data">
+              <div class="modal-body">
+                <input type="hidden" name="id" />
+                <div class="form-group has-success">
+                  <label class="form-control-label">Nome: *</label>
+                  <input type="text" name="name" class="form-control">
+                  <div class="invalid-feedback hide">Informe o nome do contato</div>
+                </div>
+                <div class="form-group has-success">
+                  <label class="form-control-label">Telefone: *</label>
+                  <input type="text" name="phone" class="form-control">
+                  <div class="invalid-feedback hide">Informe o telefone do contato</div>
+                </div>
+                <div class="form-group has-success">
+                    <label class="form-control-label">Email: </label>
+                    <input type="email" name="email" class="form-control">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="editContact(event, this.form); return false;">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    <script src="script.js"></script>
+    <script src="useractions.js"></script>
+  </div>
+</body>
+</html>

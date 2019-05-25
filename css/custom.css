@@ -11,5 +11,43 @@ p{
 }
 
 img{
-  max-width: 100%;
+  max-width: 500px;
+}
+
+.list-group-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn{
+  margin-left: 10px;
+  height: fit-content;
+  min-height: 33px;
+}
+
+.align-middle{
+  line-height: 33px;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert{
+  width: 60%;
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  display: none;
+}
+
+.contact div {
+  height: fit-content;
+}
+.contact div:first-child{
+  text-transform: capitalize;
+  font-weight: bold
+}
+
+.contact div:not(:first-child) {
+  border-left: 1px solid
 }
