@@ -3,8 +3,15 @@
 * @return {number} The check digit.
 */
 function digitoVerificador(clientId) {
-  // Escreva seu Código aqui
-  return 0;
+  var digits = clientId.toString().split('');
+
+  reduced = digits.reduce((a,b) => parseInt(a) + parseInt(b));
+  string = reduced.toString();
+
+  if(string.length > 1)
+    return digitoVerificador(string)
+
+  return parseInt(reduced);
 }
 
-console.log(digitoVerificador("55555"));
+console.log("Resposta questão 9:", digitoVerificador("55555"));
