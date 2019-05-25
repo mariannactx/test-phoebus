@@ -6,8 +6,8 @@ var systems = [
   {  version: '1.5.3.9', mode: null }, //-1 
   {  version: '1.5.4.0', mode: null }, //0 
   {  version: '1.5.4.1', mode: null }, //1
-  {  version: '1.6.4.0', mode: null }, //1 
   {  version: '1.5.5.0', mode: null }, //1 
+  {  version: '1.6.4.0', mode: null }, //1 
   {  version: '2.0.0.0', mode: null }, //1 
 ];
 
